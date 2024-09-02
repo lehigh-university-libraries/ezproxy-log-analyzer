@@ -1,0 +1,13 @@
+name: lint-test
+on: [push]
+permissions:
+  contents: read
+
+jobs:
+  lint-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: check valid sh
+        run: find . -name "*.sh" -exec shellcheck {} \;
