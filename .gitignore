@@ -1,3 +1,4 @@
 ezproxy-log-analyzer
 logs/*
 !logs/.keep
+ezproxy.json

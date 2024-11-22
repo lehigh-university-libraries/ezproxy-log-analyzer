@@ -7,8 +7,10 @@ if [ -f aggregated.log ]; then
   rm aggregated.log
 fi
 
-for LOG in $(find . -name "ezproxy.log*" | sort -t. -k3 -rn); do
-    grep -v ezproxy.lib.lehigh.edu "$LOG" >> aggregated.log
+find . -type d -mindepth 1 | sort | while read dir; do
+    find "$dir" -maxdepth 1 -type f | sort -V -r | while read LOG; do
+        grep -v ezproxy.lib.lehigh.edu "$LOG" >> aggregated.log
+    done
 done
 
 curl -v -XPOST \
