@@ -44,18 +44,18 @@ type EzpaarseLog struct {
 }
 
 type Quicksight struct {
-	Date          string  `json:"date"`
-	Domain        string  `json:"domain"`
-	City          string  `json:"city"`
-	Country       string  `json:"country"`
-	Latitude      float64 `json:"lat"`
-	Longitude     float64 `json:"lng"`
-	Region        string  `json:"region"`
-	Platform      string  `json:"platform"`
-	PlatformName  string  `json:"platform_name"`
-	PublisherName string  `json:"publisher_name"`
-	Department    string  `json:"department"`
-	Role          string  `json:"role"`
+	Date          string `json:"date"`
+	Domain        string `json:"domain"`
+	City          string `json:"city"`
+	Country       string `json:"country"`
+	Latitude      string `json:"lat"`
+	Longitude     string `json:"lng"`
+	Region        string `json:"region"`
+	Platform      string `json:"platform"`
+	PlatformName  string `json:"platform_name"`
+	PublisherName string `json:"publisher_name"`
+	Department    string `json:"department"`
+	Role          string `json:"role"`
 }
 
 // Function to check if a file exists
@@ -142,8 +142,8 @@ func main() {
 			continue
 		}
 
-		visitor.Latitude = lat
-		visitor.Longitude = lng
+		visitor.Latitude = fmt.Sprintf("%.6f", lat)
+		visitor.Longitude = fmt.Sprintf("%.6f", lng)
 
 		email := fmt.Sprintf("%s@lehigh.edu", strings.ToLower(log.Login))
 		filename := fmt.Sprintf("/tmp/%s.html", log.Login)
